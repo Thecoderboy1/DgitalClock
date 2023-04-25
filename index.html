@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <title>Digital Clock</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+
+            }
+
+            .maincontainer {
+
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .clock {
+                width: 500px;
+                height: 300px;
+
+                display: flex;
+                align-items: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                justify-content: center;
+                background-color: black;
+                color: white;
+                flex-direction: column;
+                font-family: 'Exo', sans-serif;
+                color: #cfc338;
+                font-weight: 300;
+                border-radius: 10px;
+                box-shadow: 1px 1px 10px 0px #cfc338;
+            }
+
+            .clock h1 {
+
+                font-size: 7em;
+            }
+            .clock span{
+                font-size: 20px;
+            }
+
+            .display_time {
+                display: flex;
+
+            }
+
+            strong {
+                font-family: 'Pacifico', cursive;
+                position: relative;
+                bottom: -35px;
+                right: 0;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="maincontainer">
+        <div class="clock">
+
+            <div class="display_time">
+                <h1 id="Hours">Time</h1>
+                <h1 id="Minuts">Time</h1>
+                <h1 id="Seconds">Time</h1>
+            </div>
+            <div class="display_date">
+                <span id="day">Day</span>
+                <span id="months">Months</span>
+                <span id="year">Months</span>
+            </div>
+            <strong>Thecodeboy</strong>
+        </div>
+
+    </div>
+    <script>
+        let Hours = document.getElementById("Hours");
+        let Minuts = document.getElementById("Minuts");
+        let Seconds1 = document.getElementById("Seconds");
+
+        let day = document.getElementById("day");
+        let months1 = document.getElementById("months");
+        let year = document.getElementById("year");
+
+
+        const date = new Date();
+        const month = date.toLocaleString('default', { month: 'long' });
+        let real_month = "/" + month;
+        let display_date = date.getDate();
+        let display_year = "/" + date.getFullYear();
+        day.innerHTML = display_date;
+        year.innerHTML = display_year;
+        months1.innerHTML = real_month;
+        console.log(month)
+        function display_time() {
+            let t = new Date();
+            let second = ":" + t.getSeconds();
+            let display_minuts = ":" + t.getMinutes();
+            let display_hours = t.getHours();
+
+            Hours.innerHTML = display_hours;
+            Minuts.innerHTML = display_minuts;
+            Seconds1.innerHTML = second;
+
+        }
+        setInterval(display_time, 1000);
+
+
+    </script>
+</body>
+
+</html>
